@@ -28,10 +28,9 @@ function renderButtons (){
     
 };
 
+//API call that searches the text in the button clicked
 function renderGifs (){
-    //API call
     var searchParam = $(this).attr("data-name");
-    // var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=417ePfutZTGs4Q4fMPQJhskpEMyUZVfN&q=south+korea&limit=25&offset=0&rating=PG&lang=en"
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=417ePfutZTGs4Q4fMPQJhskpEMyUZVfN&q=" + searchParam + "&limit=25&offset=0&rating=PG&lang=en"
 
     $.ajax({
@@ -39,8 +38,15 @@ function renderGifs (){
         method: "GET"
     }).then(function(data){
         console.log(data);
-        // var gifDiv = $("<div>");
-        // var gif = $("<div>");
+        console.log(data.data);
+        //Creates a div that will hold the gif and information about the gif
+        for (var i = 0; i <= 9; i++){
+            var gifDiv = $("<div>");
+            var gif = $("<div>");
+            gif.html("<img src='" + data.data[i].images.original_still.url + "'>")
+            gifDiv.append(gif);
+            $("#gifContainer").append(gifDiv);
+        }
     })
 }
 
