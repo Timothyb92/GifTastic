@@ -46,10 +46,11 @@ $(document).ready(function(){
             //Creates a div that will hold the gif and information about the gif
             for (var i = 0; i <= 9; i++){
                 var gifDiv = $("<div>");
-                var gif = $("<div>");
-                gif.html("<img src='" + data.data[i].images.original_still.url + "'>")
+                var gif = $("<img>");
+                img.attr("src", data.data[i].images.original_still.url);
+                img.attr("data-state", "still");
                 gifDiv.append(gif);
-                $("#gifContainer").append(gifDiv);
+                $("#gifContainer").prepend(gifDiv);
             }
         })
     })
