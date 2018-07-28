@@ -1,19 +1,13 @@
-// $(".gif").click(function(){
-//     console.log("Clicked gif");
-//     if($(this).attr("data-state") == "still"){
-//         $(this).attr("src", $(this).attr("data-animate"));
-//     }
-// })
 $(document).ready(function(){
     //Array that holds buttons that are shown when the page loads
     var buttonList = ["America", "Germany", "South Korea", "Australia", "Great Britain", "China", "Peru", "Brazil", "Panama", "Norway", "Iceland", "Ireland", "India", "Singapore", "Malaysia", "France", "Cambodia", "South Africa", "Sweden", "Italy", "Russia", "Cuba", "Honduras", "Colombia", "Egypt", "Myanmar (Burma)", "The Philippines"];
-
+    
     //Function to render the buttons when the page loads
     function renderButtons (){
-
+        
         $("#buttons").empty();
-
-        //Pushes all the buttons to the screen
+        
+        //Adds a new button for each country in the array and displays them them on the DOM
         buttonList.forEach(function(i){
             var countryButton = $("<button>");
             countryButton.addClass("countryButtons");
@@ -21,17 +15,16 @@ $(document).ready(function(){
             countryButton.text(i);
             $("#buttons").append(countryButton);
         })
-
+        
         
     };
-
+    
     renderButtons();
     
     //Listens to the Submit button to add a new country button to the list and renders the screen
     $("#addCountry").click(function(){
         event.preventDefault();
-        renderButtons();
-        console.log("Submit button clicked and renderButtons method ran");
+        //Only runs if the field has a value inside of it
         if ($("#countryInput").val() != ""){
             var country = $("#countryInput").val().trim();
             buttonList.push(country);
@@ -51,16 +44,35 @@ $(document).ready(function(){
             url: queryURL,
             method: "GET"
         }).then(function(data){
-            //Creates a div that will hold the gif and information about the gif
+            //Creates 9 divs that will hold the gifs and information about the gifs
             for (var i = 0; i <= 9; i++){
                 var gifDiv = $("<div>");
                 var gif = $("<img>").addClass("gif");
-                gif.attr("src", data.data[i].images.fixed_height_still.url);
+                //assigns data-still and data-animate to the src of both the still an animated versions of the gif
+                gif.attr("data-still", data.data[i].images.fixed_height_still.url)
                 gif.attr("data-animate", data.data[i].images.fixed_height.url);
+                //sets the gif to be still once it loads
                 gif.attr("data-state", "still");
+                gif.attr("src", data.data[i].images.fixed_height_still.url);
                 gifDiv.append(gif);
                 $("#gifContainer").prepend(gifDiv);
             }
+
+            //When a gif is clicked, it will animate or pause depending on the state it's currently in
+            $(".gif").click(function(){
+                if($(this).attr("data-state") == "still"){
+                    //Sets the src of the image to the animated gif
+                    $(this).attr("src", $(this).attr("data-animate"));
+                    //Sets data-state to animate
+                    $(this).attr("data-state", "animate");
+                }
+                else if ($(this).attr("data-state") == "animate") {
+                    //Sets the src of the image to the still image
+                    $(this).attr("src", $(this).attr("data-still"));
+                    //Changes data-state to still
+                    $(this).attr("data-state", "still");
+                }
+            })
         })
     })
     
