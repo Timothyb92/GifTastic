@@ -1,3 +1,7 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
 .gif {
     margin: 10px;
 }
@@ -19,5 +23,27 @@ h1 {
 
 .navyBackground {
     background-color: #203159;
-    padding: 15px
+    padding: 15px;
+    box-shadow: 0px 1px 10px, 0px -1px 10px;
+    margin-bottom: 20px;
+}
+
+#searchRow {
+    color: white;
+}
+
+#countryInput {
+    height: 35px;
+}
+
+#addCountry {
+    margin-bottom: 3px;
+}
+
+#buttons {
+    margin-bottom: 50px;
+}
+
+.card {
+    margin: 10px;
 }

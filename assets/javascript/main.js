@@ -47,9 +47,9 @@ $(document).ready(function(){
             console.log(data);
             //Creates 9 divs that will hold the gifs and information about the gifs
             for (var i = 0; i <= 9; i++){
-                var gifDiv = $("<div>").addClass("gifDiv");
+                var gifDiv = $("<div>").addClass("gifDiv float-left card");
                 var gif = $("<img>").addClass("gif");
-                var rating = $("<p>").addClass("rating");
+                var rating = $("<p>").addClass("rating card-header text-center");
                 //assigns data-still and data-animate to the src of both the still an animated versions of the gif
                 gif.attr("data-still", data.data[i].images.fixed_height_still.url)
                 gif.attr("data-animate", data.data[i].images.fixed_height.url);
