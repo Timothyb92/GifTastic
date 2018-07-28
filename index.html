@@ -5,24 +5,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="assets/javascript/main.js"></script>
 </head>
-    <body>
-        <div class="container">
-            <div class="row" id="buttons">
-            </div>
-            <div class="row">
-                <div class="col-md-8" id="gifContainer"></div>
-                <div class="col-md-4" id="addContainer">
-                    <form id="addCountryForm">
-                        <label for="countryInput">Add a country</label>
-                        <input type="text" id="countryInput">
-                        <input type="submit" id="addCountry" value="Add">
-                    </form>
-                </div>
+<body>
+    <div class="container-fluid text-center">
+        <h1>Country GIF Finder</h1>
+    </div>
+        <div class="container-fluid navyBackground">
+            <div class="container">
+                <div class="row" id="buttons"></div>
             </div>
         </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8" id="gifContainer"></div>
+            <div class="col-md-4" id="addContainer">
+                <form id="addCountryForm">
+                    <label for="countryInput">Search for a country</label>
+                    <input type="text" id="countryInput">
+                    <button class="btn btn-info" id="addCountry">
+                        <span>Add</span>
+                        <i class="fas fa-globe-americas"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="assets/javascript/main.js"></script>
     </body>
 </html>

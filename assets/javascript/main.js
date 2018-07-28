@@ -10,7 +10,7 @@ $(document).ready(function(){
         //Adds a new button for each country in the array and displays them them on the DOM
         buttonList.forEach(function(i){
             var countryButton = $("<button>");
-            countryButton.addClass("countryButtons");
+            countryButton.addClass("countryButtons btn");
             countryButton.attr("data-name", i)
             countryButton.text(i);
             $("#buttons").append(countryButton);
@@ -44,16 +44,20 @@ $(document).ready(function(){
             url: queryURL,
             method: "GET"
         }).then(function(data){
+            console.log(data);
             //Creates 9 divs that will hold the gifs and information about the gifs
             for (var i = 0; i <= 9; i++){
-                var gifDiv = $("<div>");
+                var gifDiv = $("<div>").addClass("gifDiv");
                 var gif = $("<img>").addClass("gif");
+                var rating = $("<p>").addClass("rating");
                 //assigns data-still and data-animate to the src of both the still an animated versions of the gif
                 gif.attr("data-still", data.data[i].images.fixed_height_still.url)
                 gif.attr("data-animate", data.data[i].images.fixed_height.url);
                 //sets the gif to be still once it loads
                 gif.attr("data-state", "still");
                 gif.attr("src", data.data[i].images.fixed_height_still.url);
+                rating.text("Rating: " + data.data[i].rating);
+                gifDiv.append(rating);
                 gifDiv.append(gif);
                 $("#gifContainer").prepend(gifDiv);
             }

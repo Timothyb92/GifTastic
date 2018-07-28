@@ -1,0 +1,23 @@
+.gif {
+    margin: 10px;
+}
+
+body {
+    background-color: #cdcdcd;
+}
+
+.countryButtons {
+    margin: 5px;
+    background-color: #cdcdcd;
+    color: #203159
+}
+
+h1 {
+    margin: 25px;
+    color: #203159;
+}
+
+.navyBackground {
+    background-color: #203159;
+    padding: 15px
+}
