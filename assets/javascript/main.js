@@ -34,8 +34,6 @@ $(document).ready(function(){
         }
     })
     
-    // $(".countryButtons").click(function(){
-        
         function displayCountryGifs (){
             //API call that searches the text in the button clicked
             var searchParam = $(this).attr("data-name");
