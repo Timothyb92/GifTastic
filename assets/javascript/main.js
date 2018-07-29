@@ -45,6 +45,8 @@ $(document).ready(function(){
             method: "GET"
         }).then(function(data){
             console.log(data);
+            //Empties the part of the page that holds GIFs so when another country button is clicked, it clears the previous section
+            $("#gifContainer").empty();
             //Creates 9 divs that will hold the gifs and information about the gifs
             for (var i = 0; i <= 9; i++){
                 var gifDiv = $("<div>").addClass("gifDiv float-left card");
