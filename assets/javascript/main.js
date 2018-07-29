@@ -1,6 +1,6 @@
 $(document).ready(function(){
     //Array that holds buttons that are shown when the page loads
-    var buttonList = ["America", "Germany", "South Korea", "Australia", "Great Britain", "China", "Peru", "Brazil", "Panama", "Norway", "Iceland", "Ireland", "India", "Singapore", "Malaysia", "France", "Cambodia", "South Africa", "Sweden", "Italy", "Russia", "Cuba", "Honduras", "Colombia", "Egypt", "Myanmar (Burma)", "The Philippines"];
+    var buttonList = ["America", "Germany", "South Korea", "Australia", "Great Britain", "China", "Peru", "Brazil", "Panama", "Norway", "Iceland", "Ireland", "India", "Singapore", "Malaysia", "France", "Cambodia", "South Africa", "Sweden", "Italy", "Russia", "Cuba", "Honduras", "Colombia", "Egypt", "The Philippines"];
     
     //Function to render the buttons when the page loads
     function renderButtons (){
